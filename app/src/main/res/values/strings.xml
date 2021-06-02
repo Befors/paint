@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Paint</string>
+    <string name="coordinates">Коорд</string>
+    <string name="size">Размер</string>
+    <string name="radius">Радиус</string>
+    <string name="fill">Заливка</string>
+    <string name="lines">Линии</string>
+    <string name="share">Поделиться</string>
+    <string name="save">Сохранить</string>
+    <string name="pref_folder_key">GDFolder</string>
+    <string name="upload_to_drive">Загрузка файла на гугл диск</string>
+    <string name="pls_wait">Пожалуйста подождите…</string>
+    <string name="ok">OK</string>
+    <string name="choose_color">Выберите цвет</string>
+    <string name="cancel">Отмена</string>
+</resources>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:paddingStart="10sp"
+                        android:paddingTop="10sp"
+                        android:text="@string/lines"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:gravity="start" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:background="#030303"
+                        android:id="@+id/lineColorBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3" />
+
+                    <EditText
+                        android:id="@+id/lineWidthInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fill"
+                        android:layout_width="155dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="34"
+                        android:gravity="start"
+                        android:paddingLeft="10sp"
+                        android:paddingTop="10sp"
+                        android:text="@string/fill"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fillColorBtn"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#030303" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/deleteBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="100"
+                        android:cacheColorHint="#00000000"
+                        android:background="@android:drawable/ic_delete"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/coordinates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="10sp"
+                        android:text="@string/coordinates"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="17sp"
+                        android:gravity="start" />
+
+                    <EditText
+                        android:id="@+id/coordinateInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="150;100"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/size"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="10sp"
+                        android:text="@string/size"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000000"
+                        android:textSize="17sp"
+                        android:gravity="start" />
+
+                    <EditText
+                        android:id="@+id/sizeInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="150;100"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.example.paint.DrawArea
+            android:id="@+id/drawArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/lineBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/line"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"/>
+
+
+            <ImageButton
+                android:id="@+id/rectBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/rect"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside" />
+
+
+            <ImageButton
+                android:id="@+id/circleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5sp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:src="@drawable/circle"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/save"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
