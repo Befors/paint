@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -239,18 +238,18 @@ public class MainActivity extends AppCompatActivity {
                 requestGoogleSignIn();
 
                 isAuthenticated = true;
-            } else {
-                loadFile();
             }
+
+            loadFile();
         });
     }
 
     private void requestGoogleSignIn() {
         GoogleSignInOptions signInOptions =
                 new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestScopes(new Scope(DriveScopes.DRIVE))
-                .build();
+                        .requestEmail()
+                        .requestScopes(new Scope(DriveScopes.DRIVE))
+                        .build();
 
         GoogleSignInClient client = GoogleSignIn.getClient(this, signInOptions);
 
@@ -260,18 +259,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        handleSignInData(data);
+
         if (requestCode == RESULT_OK && resultCode == 400) {
-
+            handleSignInData(data);
         }
-
-
     }
 
     private void handleSignInData(Intent data) {
         GoogleSignIn.getSignedInAccountFromIntent(data)
                 .addOnSuccessListener(googleSignInAccount -> {
-                    Log.w("POPA", googleSignInAccount.getEmail());
 
                     GoogleAccountCredential credential = GoogleAccountCredential
                             .usingOAuth2(MainActivity.this,
@@ -287,15 +283,13 @@ public class MainActivity extends AppCompatActivity {
                             .build();
 
                     driveServiceHelper = new DriveServiceHelper(googleDriveService, this);
-
-                    loadFile();
                 })
                 .addOnFailureListener(e -> {
                 });
     }
 
     private void loadFile() {
-        String[] permissions = new String[] {
+        String[] permissions = new String[]{
                 Manifest.permission.INTERNET,
                 Manifest.permission.GET_ACCOUNTS,
                 Manifest.permission.READ_EXTERNAL_STORAGE
