@@ -248,8 +248,8 @@ public class MainActivity extends AppCompatActivity {
     private void requestGoogleSignIn() {
         GoogleSignInOptions signInOptions =
                 new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestEmail()
-                .requestScopes(new Scope(DriveScopes.DRIVE_FILE))
+                .requestEmail()
+                .requestScopes(new Scope(DriveScopes.DRIVE))
                 .build();
 
         GoogleSignInClient client = GoogleSignIn.getClient(this, signInOptions);
@@ -259,19 +259,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        handleSignInData(data);
         if (requestCode == RESULT_OK && resultCode == 400) {
-            handleSignInData(data);
+
         }
 
-        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     private void handleSignInData(Intent data) {
         GoogleSignIn.getSignedInAccountFromIntent(data)
                 .addOnSuccessListener(googleSignInAccount -> {
+                    Log.w("POPA", googleSignInAccount.getEmail());
+
                     GoogleAccountCredential credential = GoogleAccountCredential
                             .usingOAuth2(MainActivity.this,
-                                    Collections.singleton(DriveScopes.DRIVE_FILE));
+                                    Collections.singleton(DriveScopes.DRIVE));
 
                     credential.setSelectedAccount(googleSignInAccount.getAccount());
 
@@ -284,7 +288,6 @@ public class MainActivity extends AppCompatActivity {
 
                     driveServiceHelper = new DriveServiceHelper(googleDriveService, this);
 
-                    Log.w("HELLOoo", "I AM HERE 1");
                     loadFile();
                 })
                 .addOnFailureListener(e -> {
